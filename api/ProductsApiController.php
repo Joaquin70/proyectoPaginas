@@ -16,7 +16,7 @@ class CommentsApiController extends ApiController{
         $this->view->response($comments, 200);
     }
 
-    public function getComment($params = null){
+    public function getProduct($params = null){
         $idComment = $params[':ID'];
         $comment = $this->model->getCommentFromDB($idComment);
         $this->view->response($comment, 200);
@@ -35,4 +35,3 @@ class CommentsApiController extends ApiController{
     }
 
 }
-
