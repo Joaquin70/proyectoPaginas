@@ -1,5 +1,5 @@
 <?php
-class productModel {
+class ProductModel {
     function __construct(){
         $this->db = new PDO('mysql:host=localhost;dbname=proyecto;charset=utf8','root','');
     }

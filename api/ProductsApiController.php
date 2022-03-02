@@ -2,18 +2,18 @@
 require_once "model/ProductsModel.php";
 require_once "api/ApiController.php";
 
-class CommentsApiController extends ApiController{
+class ProductsApiController extends ApiController{
 
 
     public function __construct(){
         parent::__construct();
-        $this->model = new ProductsModel();
+        $this->model = new ProductModel();
     }
 
 
     public function getProducts($params = null){
         $this->model->getProducts();
-        $this->view->response($comments, 200);
+        $this->view->response(false, 200);
     }
 
     public function getProduct($params = null){
