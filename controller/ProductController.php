@@ -25,7 +25,7 @@ class ProductController{
     }
 
     function showProductsByCategory($id_category, $categories){
-        $products = $this->model->getProductsCategory($id_category);
+        $products = $this->model->getProductsByCategory($id_category);
         $this->view->renderProducts($products, $categories);
     }
 
@@ -40,23 +40,24 @@ class ProductController{
         $this->view->renderEditProduct($product, $categories);
     }
 
+    
     function addProduct(){
         $this->authHelper->checkAdmin();
-        if(isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['contenido']) && isset($_POST['id_categoria'])){
-            if(!empty($_POST['nombre']) && !empty($_POST['descripcion']) && !empty($_POST['contenido']) && !empty($_POST['id_categoria'])){
-                $this->model->addProductToDB($_POST['nombre'], $_POST['descripcion'], $_POST['contenido'], $_POST['id_categoria']);
+        if(isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['imagen']) && isset($_POST['categoria']) && isset($_POST['precio'])){
+            if(!empty($_POST['nombre']) && !empty($_POST['descripcion']) && !empty($_POST['imagen']) && !empty($_POST['categoria']) && !empty($_POST['precio'])){
+                $this->model->addProductToDB($_POST['nombre'], $_POST['descripcion'], $_POST['imagen'], $_POST['categoria'], $_POST['precio']);
                 header("Location: ".BASE_URL."products");
             }
         }
     }
 
-    function deleteProduct($id_producto){
+    /*function deleteProduct($id_producto){
         $this->authHelper->checkAdmin();
         $this->model->deleteProductFromDB($id_producto);
         header("Location: ".BASE_URL."products");
-    }
+    }*/
 
-    function updateProduct($id_producto){
+    /*function updateProduct($id_producto){
         $this->authHelper->checkAdmin();
         if(isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['contenido']) && isset($_POST['id_categoria'])){
             if(!empty($_POST['nombre']) && !empty($_POST['descripcion']) && !empty($_POST['contenido']) && !empty($_POST['id_categoria'])){
@@ -64,6 +65,6 @@ class ProductController{
                 header("Location: ".BASE_URL."products");
             }
         }
-    }
+    }*/
 
 }
