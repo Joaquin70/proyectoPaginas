@@ -13,6 +13,17 @@ class ProductModel {
         return $products;
     }
 
+    function getProduct($id_producto){
+        $sentence = $this->db->prepare(
+            "SELECT productos.*, categorias.nombre AS categoria
+            FROM productos
+            JOIN categorias ON productos.id_categoria = categorias.id_categoria
+            WHERE id_producto=?");
+        $sentence->execute(array($id_producto));
+        $product = $sentence->fetch(PDO::FETCH_OBJ);
+        return $product;
+    }
+
     function getProductsCategory($id_category){
         $sentence = $this->db->prepare(
             "SELECT productos.*, categorias.nombre AS categoria
