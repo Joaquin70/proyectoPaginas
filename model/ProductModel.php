@@ -28,6 +28,4 @@ class ProductModel {
         return $products;
     }
 
-    //hacer funcion add product
-
 }

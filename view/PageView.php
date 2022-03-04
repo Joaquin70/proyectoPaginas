@@ -14,4 +14,8 @@ class PageView{
         $this->smarty->display('templates/home.tpl');
     }
 
+    function showContact(){
+        $this->smarty->display('templates/contact.tpl');
+    }
+    
 }
