@@ -1,8 +1,12 @@
 <?php
 class ProductModel {
+
+
     function __construct(){
         $this->db = new PDO('mysql:host=localhost;dbname=proyecto;charset=utf8','root','');
     }
+
+
     function getProducts(){
         $sentence = $this->db->prepare(
             "SELECT productos.*, categorias.nombre AS categoria
@@ -13,7 +17,7 @@ class ProductModel {
         return $products;
     }
 
-    function getProductsCategory($id_category){
+    function getProductsByCategory($id_category){
         $sentence = $this->db->prepare(
             "SELECT productos.*, categorias.nombre AS categoria
             FROM productos
@@ -23,5 +27,7 @@ class ProductModel {
         $products = $sentence->fetchAll(PDO::FETCH_OBJ);
         return $products;
     }
+
+    //hacer funcion add product
 
 }
