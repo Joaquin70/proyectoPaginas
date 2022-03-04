@@ -17,6 +17,17 @@ class ProductModel {
         return $products;
     }
 
+    function getProduct($id_producto){
+        $sentence = $this->db->prepare(
+            "SELECT productos.*, categorias.nombre AS categoria
+            FROM productos
+            JOIN categorias ON productos.id_categoria = categorias.id_categoria
+            WHERE id_producto=?");
+        $sentence->execute(array($id_producto));
+        $product = $sentence->fetch(PDO::FETCH_OBJ);
+        return $product;
+    }
+
     function getProductsByCategory($id_category){
         $sentence = $this->db->prepare(
             "SELECT productos.*, categorias.nombre AS categoria
@@ -28,4 +39,12 @@ class ProductModel {
         return $products;
     }
 
+<<<<<<< HEAD
+=======
+    function addProductToDB($nombre, $descripcion, $imagen, $categoria, $precio){
+        $sentence = $this->db->prepare("INSERT INTO productos(nombre, descripcion, imagen, categoria, precio) VALUES(?,?,?,?,?)");
+        $sentence->execute(array($nombre, $descripcion, $imagen, $categoria, $precio));
+    }
+
+>>>>>>> 327d12be4c661546ab354acf2d72048bbef5e735
 }
