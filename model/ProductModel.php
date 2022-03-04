@@ -39,12 +39,8 @@ class ProductModel {
         return $products;
     }
 
-<<<<<<< HEAD
-=======
     function addProductToDB($nombre, $descripcion, $imagen, $categoria, $precio){
         $sentence = $this->db->prepare("INSERT INTO productos(nombre, descripcion, imagen, categoria, precio) VALUES(?,?,?,?,?)");
         $sentence->execute(array($nombre, $descripcion, $imagen, $categoria, $precio));
     }
-
->>>>>>> 327d12be4c661546ab354acf2d72048bbef5e735
 }

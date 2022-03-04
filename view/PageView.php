@@ -7,7 +7,7 @@ class PageView{
 
     function __construct(){
         $this->smarty = new Smarty();
-        $this->model = new PageDataModel();
+        //$this->model = new PageDataModel();
     }
 
     function showHome(){

@@ -9,5 +9,9 @@ class PageController{
         $this->view = new PageView();
     }
 
+    function showHome(){
+        $this->view->showHome();
+    }
+
 
 }

@@ -1,7 +1,7 @@
 <?php
 require_once "view/ProductView.php";
 require_once "model/ProductModel.php";
-require_once "helpers/AuthHelper.php";
+//require_once "helpers/AuthHelper.php";
 
 class ProductController{
 
@@ -11,8 +11,8 @@ class ProductController{
 
     public function __construct(){
         $this->model = new ProductModel();
-        $this->view = new ProductView();
-        $this->authHelper = new AuthHelper();
+        //$this->view = new ProductView();
+        //$this->authHelper = new AuthHelper();
     }
 
     function showHome(){

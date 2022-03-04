@@ -1,7 +1,7 @@
 <?php
 require_once "controller/PageController.php";
 require_once "controller/ProductController.php";
-require_once "controller/CategoryController.php";
+//require_once "controller/CategoryController.php";
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -14,7 +14,7 @@ else
 $params = explode('/', $action);
 $page = new PageController();
 $productController = new ProductController();
-$categoryController = new CategoryController();
+//$categoryController = new CategoryController();
 
 switch ($params[0]) {
     case 'home':
